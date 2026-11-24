@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CITAC - Painel Principal</title>
+    <link rel="stylesheet" href="painel.css">
+    
+    <link href='https://fonts.googleapis.com/css?family=Inclusive+Sans' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Iceland' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Hepta+Slab' rel='stylesheet'>
+</head>
+<body>
+
+    <div class="dashboard-background"></div>
+
+    <button id="open-sidebar-btn" class="sidebar-open-btn" aria-label="Abrir Menu">
+        <span>&#9776;</span>
+    </button>
+
+    <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <label class="switch" title="Recolher Menu">
+                <input type="checkbox" id="sidebar-toggle" checked>
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-item">
+                <button class="nav-link btn-modal" data-target="modal-cadastro-item">Novo evento +</button>
+            </div>
+            
+            <div class="nav-item">
+                <button class="nav-link dropdown-btn">Seus eventos &#9662;</button>
+                <div class="sub-menu">
+                    <a href="#">RoboCup 2026</a>
+                    <a href="#">Feira de Tecnologia</a>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <button class="nav-link btn-modal" data-target="modal-cadastro-item">Novo projeto +</button>
+            </div>
+
+            <div class="nav-item">
+                <button class="nav-link dropdown-btn">Seus projetos &#9662;</button>
+                <div class="sub-menu">
+                    <a href="#">Braço Robótico V2</a>
+                    <a href="#">Seguidor de Linha</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <button class="user-profile-btn btn-modal" data-target="modal-perfil">
+                <div class="avatar-icon">&#128100;</div>
+                <span>Seu nome</span>
+            </button>
+        </div>
+    </aside>
+
+    <main class="main-wrapper">
+        <header class="top-nav">
+            <a href="#" class="top-link">PROJETOS</a>
+            
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Buscar projetos e eventos..." class="search-input">
+                <button id="search-btn" class="search-btn">BUSCAR &#128065;</button>
+            </div>
+
+            <div class="brand-logo-small">
+                <img src="Imagens/Gemini_Generated_Image_cf665ucf665ucf66-removebg-preview.png" alt="Logo CITAC">
+            </div>
+        </header>
+
+        <section class="dashboard-hero">
+            <h1 class="page-title">EVENTOS</h1>
+            
+            <div class="glass-card main-card">
+                <div class="card-info">
+                    <p>Seu evento e projetos de robótica em uma plataforma de divulgação</p>
+                </div>
+                <div class="card-image-placeholder">
+                    <span>&#128065;</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="cards-grid">
+            <article class="glass-card grid-card">
+                <div class="card-overlay">
+                    <h3>Campeonato Regional</h3>
+                </div>
+            </article>
+
+            <article class="glass-card grid-card">
+                <div class="card-overlay">
+                    <h3>Workshop Arduino</h3>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <div id="modal-cadastro-item" class="modal-overlay">
+        <div class="login-card-modal">
+            <button class="modal-close-btn close-modal">&times;</button>
+            <h2>CRIAR ITEM</h2>
+            
+            <form class="modal-form">
+                <div class="modal-input-group">
+                    <input type="text" placeholder="Título do Evento/Projeto" required>
+                </div>
+
+                <div class="modal-input-group">
+                    <textarea placeholder="Descrição Rápida..." rows="3" required></textarea>
+                </div>
+
+                <div class="modal-input-group">
+                    <input type="file" accept="image/*" id="file-upload">
+                </div>
+
+                <button type="submit" class="btn-modal-submit">Publicar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal-perfil" class="modal-overlay">
+        <div class="login-card-modal">
+            <button class="modal-close-btn close-modal">&times;</button>
+            <h2>PERFIL</h2>
+            
+            <div class="avatar-selection">
+                <p class="avatar-title">Escolha seu Avatar:</p>
+                <div class="avatars-grid">
+                    <div class="avatar-option selected">&#129302;</div>
+                    <div class="avatar-option">&#128187;</div>
+                    <div class="avatar-option">&#9881;</div>
+                </div>
+            </div>
+
+            <form class="modal-form">
+                <div class="modal-input-group">
+                    <input type="text" placeholder="Seu Nome" value="Seu Nome">
+                </div>
+
+                <button type="submit" class="btn-modal-submit">Salvar Alterações</button>
+                <button type="button" class="btn-modal-secondary">Sair da Conta</button>
+                <button type="button" class="btn-modal-danger">Excluir Minha Conta</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="painel.js"></script>
+</body>
+</html>

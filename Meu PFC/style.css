@@ -1,0 +1,347 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #000000;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 50px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    z-index: 10;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navegacao {
+    display: flex;
+    gap: 50px;
+}
+
+.navegacao a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+header h3 {
+    color: #ffffff;
+    cursor: pointer;
+    font-family: 'Hepta Slab';
+    font-size: 20px;
+    font-weight: normal;
+    text-shadow: 2px 2px 20px black;
+}
+
+.hero-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+
+    background-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0) 80%, #000000 100%),
+        url('Imagens/𝐂𝐈𝐓𝐀𝐂.png');
+
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 500px;
+}
+
+.hero-title {
+    color: #ffffff;
+    font-weight: normal;
+    font-family: 'Iceland';
+    font-size: 100px;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px #0000005d;
+}
+
+.hero-subtitle {
+    color: #ffffff;
+    font-size: 1.5rem;
+    max-width: 450px;
+    margin-bottom: 30px;
+    font-family: 'Hepta Slab';
+}
+
+/* BOTÃO CONHEÇA */
+
+.btn-discover,
+.btn-discover:visited,
+.btn-discover:active {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    background: rgba(95, 90, 90, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 15px 50px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 4px 4px 10px #25142c65;
+    font-family: 'Inclusive Sans';
+    font-size: 25px;
+    text-shadow: 2px 7px 6px #571177;
+}
+
+.btn-discover:hover {
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    color: white;
+}
+
+/* BOTÕES ENTRAR E CADASTRE-SE */
+
+.hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btn-primary,
+.btn-secondary {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 900;
+    padding: 12px 40px;
+    border-radius: 25px;
+    min-width: 150px;
+    font-family: 'Inclusive Sans';
+    font-size: 25px;
+    box-shadow: 0px 0px 5px white;
+    transition: 0.3s ease;
+    text-shadow: 2px 4px 8px #57117770;
+}
+
+.btn-primary {
+    background-color: white;
+    color: black;
+}
+
+.btn-secondary {
+    background-color: white;
+    color: black;
+}
+
+/* CONTEÚDO SOBRE O PROJETO */
+
+.content-section {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 100px 10%;
+    min-height: 100vh;
+    position: relative;
+    z-index: 2;
+}
+
+.content-wrapper {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+    color: #ffffff;
+    font-family: 'Iceland';
+    font-weight: 400;
+}
+
+.section-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #cccccc;
+    font-family: 'Hepta Slab';
+}
+
+/* ANIMAÇÃO DOS BOTÕES */
+
+.btn-primary {
+    animation: aparecerBotao 0.7s ease-out both;
+}
+
+.btn-secondary {
+    animation: aparecerBotao 0.7s ease-out 0.15s both;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    transform: translateY(-5px) scale(1.04);
+
+    box-shadow:
+        0px 0px 12px white,
+        0px 0px 25px rgba(162, 0, 255, 0.45);
+}
+
+.btn-primary:active,
+.btn-secondary:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+@keyframes aparecerBotao {
+    from {
+        opacity: 0;
+        filter: blur(4px);
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+/* RODAPÉ */
+
+.site-footer {
+    width: 100%;
+    height: 90px;
+    background-image: none;
+    background-color: #000000;
+    border-top: 1px solid rgba(162, 0, 255, 0.25);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+
+    color: #ffffff;
+    font-family: 'Inclusive Sans', sans-serif;
+    font-size: 13px;
+
+    position: relative;
+    z-index: 10;
+}
+
+.site-footer::before {
+    display: none;
+}
+
+.site-footer a {
+    color: #cccccc;
+    font-family: 'Hepta Slab';
+    font-size: 12px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.site-footer a:hover {
+    color: #c77dff;
+}
+
+/* ACESSIBILIDADE */
+
+@media (prefers-reduced-motion: reduce) {
+    .btn-primary,
+    .btn-secondary {
+        animation: none;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .site-footer a {
+        transition: none;
+    }
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 18px 22px;
+    }
+
+    .navegacao {
+        gap: 20px;
+    }
+
+    header h3 {
+        font-size: 14px;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 45px;
+        padding: 120px 8% 50px;
+        min-height: 100vh;
+        height: auto;
+    }
+
+    .hero-title {
+        font-size: 76px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .hero-right {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        min-width: 0;
+        padding: 11px 22px;
+        font-size: 18px;
+    }
+
+    .content-section {
+        padding: 75px 8%;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-text {
+        font-size: 1rem;
+    }
+}
