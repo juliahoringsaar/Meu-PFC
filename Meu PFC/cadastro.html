@@ -1,80 +1,242 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CITAC - Cadastro</title>
+
     <link rel="stylesheet" href="login.css">
-    
-    <!-- Fontes do Google -->
-    <link href='https://fonts.googleapis.com/css?family=Inclusive+Sans' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Iceland' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Hepta+Slab' rel='stylesheet'>
+
+    <link href="https://fonts.googleapis.com/css?family=Inclusive+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Iceland" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hepta+Slab" rel="stylesheet">
 </head>
+
 <body>
 
-    <!-- Fundo de Imagem Invertido (Reaproveitando o estilo da login) -->
     <div class="hero-background-inverted"></div>
 
-    <!-- Cabeçalho com o botão VOLTAR -->
     <header class="login-header">
         <a href="index.html" class="btn-voltar">
             &#9664; VOLTAR
         </a>
     </header>
 
-    <!-- Conteúdo Principal -->
     <main class="login-container">
-        
-        <!-- Lado Esquerdo: Marca CITAC + Logo -->
+
         <div class="brand-section">
             <h1 class="brand-title">CITAC</h1>
-            <img src="Imagens/Gemini_Generated_Image_cf665ucf665ucf66-removebg-preview.png" alt="Logo CITAC" class="brand-logo">
+
+            <img
+                src="Imagens/Gemini_Generated_Image_cf665ucf665ucf66-removebg-preview.png"
+                alt="Logo CITAC"
+                class="brand-logo"
+            >
         </div>
 
-        <!-- Lado Direito: Card do Formulário de Cadastro -->
         <div class="login-card">
-            
-            <!-- Botão Cadastrar com Google -->
+
             <button type="button" class="btn-google">
-                <svg class="google-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                <svg class="google-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 48 48">
+
                     <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+
                     <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+
                     <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+
                     <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
                 </svg>
+
                 <span>CADASTRAR COM GOOGLE</span>
             </button>
 
-            <!-- Formulário de Cadastro -->
-            <form class="login-form">
+            <form class="login-form" id="cadastroForm">
+
                 <div class="input-group">
-                    <input type="text" placeholder="Nome Completo" required>
+                    <label for="nome">Nome completo</label>
+
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        placeholder="Digite seu nome completo"
+                        autocomplete="name"
+                        required
+                        minlength="3"
+                    >
                 </div>
 
                 <div class="input-group">
-                    <input type="email" placeholder="Email" required>
+                    <label for="tipo_usuario">Tipo de usuário</label>
+
+                    <select
+                        id="tipo_usuario"
+                        name="tipo_usuario"
+                        required
+                    >
+                        <option value="" disabled selected>
+                            Selecione uma opção
+                        </option>
+
+                        <option value="aluno">Aluno</option>
+                        <option value="professor">Professor</option>
+                    </select>
                 </div>
 
                 <div class="input-group">
-                    <input type="password" placeholder="Senha" required>
+                    <label for="email">E-mail</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Digite seu e-mail"
+                        autocomplete="email"
+                        required
+                    >
                 </div>
 
                 <div class="input-group">
-                    <input type="password" placeholder="Confirmar Senha" required>
+                    <label for="telefone">
+                        Telefone
+                        <span class="optional-label">(opcional)</span>
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="telefone"
+                        name="telefone"
+                        placeholder="(00) 00000-0000"
+                        autocomplete="tel"
+                        inputmode="tel"
+                    >
                 </div>
 
-                <button type="submit" class="btn-submit">Cadastrar</button>
+                <div class="input-group">
+                    <label for="senha">Senha</label>
+
+                    <input
+                        type="password"
+                        id="senha"
+                        name="senha"
+                        placeholder="Crie uma senha"
+                        autocomplete="new-password"
+                        minlength="8"
+                        required
+                    >
+
+                    <small class="field-hint">
+                        Utilize pelo menos 8 caracteres.
+                    </small>
+                </div>
+
+                <div class="input-group">
+                    <label for="confirmar_senha">
+                        Confirmar senha
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmar_senha"
+                        name="confirmar_senha"
+                        placeholder="Digite sua senha novamente"
+                        autocomplete="new-password"
+                        minlength="8"
+                        required
+                    >
+                </div>
+
+                <p
+                    id="mensagemCadastro"
+                    class="form-message"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+
+                <button type="submit" class="btn-submit">
+                    Cadastrar
+                </button>
+
             </form>
 
-            <!-- Link auxiliar para ir para a tela de login -->
             <p class="switch-auth">
-                Já tem uma conta? <a href="login.html">Faça Login</a>
+                Já tem uma conta?
+                <a href="login.html">Faça Login</a>
             </p>
 
         </div>
 
     </main>
+
+    <script>
+        const formulario = document.getElementById("cadastroForm");
+
+        const senha = document.getElementById("senha");
+
+        const confirmarSenha = document.getElementById("confirmar_senha");
+
+        const tipoUsuario = document.getElementById("tipo_usuario");
+
+        const mensagem = document.getElementById("mensagemCadastro");
+
+
+        function verificarSenhas() {
+
+            if (confirmarSenha.value !== senha.value) {
+
+                confirmarSenha.setCustomValidity(
+                    "As senhas não coincidem."
+                );
+
+            } else {
+
+                confirmarSenha.setCustomValidity("");
+
+            }
+
+        }
+
+
+        senha.addEventListener("input", verificarSenhas);
+
+        confirmarSenha.addEventListener("input", verificarSenhas);
+
+
+        formulario.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            verificarSenhas();
+
+            if (!formulario.checkValidity()) {
+
+                formulario.reportValidity();
+
+                return;
+
+            }
+
+            const tipo = tipoUsuario.value;
+
+            if (tipo === "professor") {
+
+                mensagem.textContent =
+                    "Cadastro preenchido! A conta de professor precisará de aprovação antes de receber permissões especiais.";
+
+            } else {
+
+                mensagem.textContent =
+                    "Formulário preenchido e validado! A integração com o sistema de cadastro ainda precisa ser realizada.";
+
+            }
+
+        });
+
+    </script>
 
 </body>
 </html>
