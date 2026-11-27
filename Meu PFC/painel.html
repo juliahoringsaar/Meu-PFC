@@ -1,156 +1,310 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CITAC - Painel Principal</title>
+
     <link rel="stylesheet" href="painel.css">
-    
-    <link href='https://fonts.googleapis.com/css?family=Inclusive+Sans' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Iceland' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Hepta+Slab' rel='stylesheet'>
+
+    <link href="https://fonts.googleapis.com/css?family=Inclusive+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Iceland" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hepta+Slab" rel="stylesheet">
 </head>
+
 <body>
 
     <div class="dashboard-background"></div>
 
-    <button id="open-sidebar-btn" class="sidebar-open-btn" aria-label="Abrir Menu">
-        <span>&#9776;</span>
+    <button id="open-sidebar-btn" class="sidebar-open-btn"
+        aria-label="Abrir menu lateral" title="Abrir menu">
+        ☰
     </button>
 
     <aside id="sidebar" class="sidebar">
+
         <div class="sidebar-header">
-            <label class="switch" title="Recolher Menu">
+            <label class="switch" title="Recolher menu">
                 <input type="checkbox" id="sidebar-toggle" checked>
                 <span class="slider round"></span>
             </label>
         </div>
 
-        <nav class="sidebar-nav">
-            <div class="nav-item">
-                <button class="nav-link btn-modal" data-target="modal-cadastro-item">Novo evento +</button>
+        <nav class="sidebar-nav" aria-label="Menu principal">
+
+            <div class="nav-item teacher-only">
+                <button class="nav-link btn-modal"
+                    data-target="modal-cadastro-item"
+                    data-item-type="evento">
+                    Novo evento +
+                </button>
             </div>
-            
-            <div class="nav-item">
-                <button class="nav-link dropdown-btn">Seus eventos &#9662;</button>
+
+            <div class="nav-item teacher-only">
+                <button class="nav-link dropdown-btn" aria-expanded="false">
+                    Seus eventos <span>⌄</span>
+                </button>
+
                 <div class="sub-menu">
-                    <a href="#">RoboCup 2026</a>
-                    <a href="#">Feira de Tecnologia</a>
+                    <a href="#" class="history-link">RoboCup 2026</a>
+                    <a href="#" class="history-link">Feira de Tecnologia</a>
                 </div>
             </div>
 
-            <div class="nav-item">
-                <button class="nav-link btn-modal" data-target="modal-cadastro-item">Novo projeto +</button>
+            <div class="nav-item teacher-only">
+                <button class="nav-link btn-modal"
+                    data-target="modal-cadastro-item"
+                    data-item-type="projeto">
+                    Novo projeto +
+                </button>
             </div>
 
-            <div class="nav-item">
-                <button class="nav-link dropdown-btn">Seus projetos &#9662;</button>
+            <div class="nav-item teacher-only">
+                <button class="nav-link dropdown-btn" aria-expanded="false">
+                    Seus projetos <span>⌄</span>
+                </button>
+
                 <div class="sub-menu">
-                    <a href="#">Braço Robótico V2</a>
-                    <a href="#">Seguidor de Linha</a>
+                    <a href="#" class="history-link">Braço Robótico V2</a>
+                    <a href="#" class="history-link">Seguidor de Linha</a>
                 </div>
             </div>
+
+            <div class="nav-item student-only">
+                <button class="nav-link" id="my-activities-btn">
+                    Minhas atividades
+                </button>
+            </div>
+
+            <div class="nav-item student-only">
+                <button class="nav-link btn-modal"
+                    data-target="modal-cadastro-item"
+                    data-item-type="proposta">
+                    Propor projeto +
+                </button>
+            </div>
+
         </nav>
 
         <div class="sidebar-footer">
-            <button class="user-profile-btn btn-modal" data-target="modal-perfil">
-                <div class="avatar-icon">&#128100;</div>
-                <span>Seu nome</span>
+            <button class="user-profile-btn btn-modal"
+                data-target="modal-perfil">
+
+                <div class="avatar-icon" id="sidebar-avatar">👤</div>
+                <span id="sidebar-user-name">Seu nome</span>
+
             </button>
         </div>
+
     </aside>
 
+
     <main class="main-wrapper">
+
         <header class="top-nav">
-            <a href="#" class="top-link">PROJETOS</a>
-            
-            <div class="search-container">
-                <input type="text" id="search-input" placeholder="Buscar projetos e eventos..." class="search-input">
-                <button id="search-btn" class="search-btn">BUSCAR &#128065;</button>
+
+            <button class="top-link" id="projects-nav">
+    PROJETOS
+</button>
+
+            <div class="search-container" id="search-container">
+
+                <input
+                    type="search"
+                    id="search-input"
+                    class="search-input"
+                    placeholder="Buscar projetos e eventos..."
+                    aria-label="Buscar projetos e eventos"
+                >
+
+                <button id="search-btn" class="search-btn"
+                    aria-label="Abrir ou fechar busca">
+                    BUSCAR <span>⌕</span>
+                </button>
+
             </div>
+
+            <a class="top-link" id="about-nav" href="sobre-nos.html?origem=painel">
+    SOBRE NÓS
+</a>
 
             <div class="brand-logo-small">
-                <img src="Imagens/Gemini_Generated_Image_cf665ucf665ucf66-removebg-preview.png" alt="Logo CITAC">
+                <img
+                    src="Imagens/Gemini_Generated_Image_cf665ucf665ucf66-removebg-preview.png"
+                    alt="Logo CITAC"
+                >
             </div>
+
         </header>
 
-        <section class="dashboard-hero">
-            <h1 class="page-title">EVENTOS</h1>
-            
-            <div class="glass-card main-card">
-                <div class="card-info">
-                    <p>Seu evento e projetos de robótica em uma plataforma de divulgação</p>
+
+        <section id="content-page">
+
+            <section class="dashboard-hero">
+
+                <h1 class="page-title" id="page-title">EVENTOS</h1>
+
+                <div class="glass-card main-card">
+
+                    <div class="card-info">
+                        <p>
+                            Seu evento e projetos de robótica
+                            em uma plataforma de divulgação.
+                        </p>
+                    </div>
+
+                    <div class="card-image-placeholder">
+                        <span>▧</span>
+                    </div>
+
                 </div>
-                <div class="card-image-placeholder">
-                    <span>&#128065;</span>
-                </div>
+
+            </section>
+
+
+            <div class="content-filter" id="content-filter">
+
+                <button class="filter-btn active" data-filter="todos">
+                    Todos
+                </button>
+
+                <button class="filter-btn" data-filter="proximos">
+                    Próximos
+                </button>
+
+                <button class="filter-btn" data-filter="encerrados">
+                    Encerrados
+                </button>
+
             </div>
+
+
+            <section class="cards-grid" id="cards-grid"
+                aria-live="polite">
+            </section>
+
+            <p class="empty-message" id="empty-message" hidden>
+                Nenhum resultado encontrado.
+            </p>
+
         </section>
 
-        <section class="cards-grid">
-            <article class="glass-card grid-card">
-                <div class="card-overlay">
-                    <h3>Campeonato Regional</h3>
-                </div>
-            </article>
-
-            <article class="glass-card grid-card">
-                <div class="card-overlay">
-                    <h3>Workshop Arduino</h3>
-                </div>
-            </article>
-        </section>
     </main>
 
+
     <div id="modal-cadastro-item" class="modal-overlay">
+
         <div class="login-card-modal">
-            <button class="modal-close-btn close-modal">&times;</button>
-            <h2>CRIAR ITEM</h2>
-            
-            <form class="modal-form">
+
+            <button class="modal-close-btn close-modal"
+                aria-label="Fechar">&times;</button>
+
+            <h2 id="modal-item-title">CRIAR ITEM</h2>
+
+            <form class="modal-form" id="item-form">
+
                 <div class="modal-input-group">
-                    <input type="text" placeholder="Título do Evento/Projeto" required>
+                    <input
+                        type="text"
+                        id="item-title"
+                        placeholder="Título do projeto ou evento"
+                        required
+                    >
                 </div>
 
                 <div class="modal-input-group">
-                    <textarea placeholder="Descrição Rápida..." rows="3" required></textarea>
+                    <textarea
+                        id="item-description"
+                        placeholder="Conte um pouco sobre sua iniciativa..."
+                        rows="4"
+                        required
+                    ></textarea>
                 </div>
 
                 <div class="modal-input-group">
-                    <input type="file" accept="image/*" id="file-upload">
+                    <label for="file-upload">Imagem da publicação (opcional)</label>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        id="file-upload"
+                    >
                 </div>
 
-                <button type="submit" class="btn-modal-submit">Publicar</button>
+                <button type="submit" class="btn-modal-submit">
+                    Enviar
+                </button>
+
+                <p class="form-feedback" id="item-feedback"></p>
+
             </form>
+
         </div>
+
     </div>
 
+
+    <!-- MODAL DE PERFIL -->
     <div id="modal-perfil" class="modal-overlay">
+
         <div class="login-card-modal">
-            <button class="modal-close-btn close-modal">&times;</button>
+
+            <button class="modal-close-btn close-modal"
+                aria-label="Fechar">&times;</button>
+
             <h2>PERFIL</h2>
-            
+
             <div class="avatar-selection">
-                <p class="avatar-title">Escolha seu Avatar:</p>
+
+                <p class="avatar-title">Escolha seu avatar:</p>
+
                 <div class="avatars-grid">
-                    <div class="avatar-option selected">&#129302;</div>
-                    <div class="avatar-option">&#128187;</div>
-                    <div class="avatar-option">&#9881;</div>
+
+                    <button type="button" class="avatar-option selected">👤</button>
+                    <button type="button" class="avatar-option">🤖</button>
+                    <button type="button" class="avatar-option">💻</button>
+                    <button type="button" class="avatar-option">⚙️</button>
+
                 </div>
+
             </div>
 
-            <form class="modal-form">
+            <form class="modal-form" id="profile-form">
+
                 <div class="modal-input-group">
-                    <input type="text" placeholder="Seu Nome" value="Seu Nome">
+                    <input
+                        type="text"
+                        id="profile-name"
+                        placeholder="Seu nome"
+                        value="Seu nome"
+                        required
+                    >
                 </div>
 
-                <button type="submit" class="btn-modal-submit">Salvar Alterações</button>
-                <button type="button" class="btn-modal-secondary">Sair da Conta</button>
-                <button type="button" class="btn-modal-danger">Excluir Minha Conta</button>
+                <button type="submit" class="btn-modal-submit">
+                    Salvar alterações
+                </button>
+
+                <button type="button" class="btn-modal-secondary"
+                    id="logout-btn">
+                    Sair da conta
+                </button>
+
+                <button type="button" class="btn-modal-danger"
+                    id="delete-account-btn">
+                    Excluir minha conta
+                </button>
+
+                <p class="form-feedback" id="profile-feedback"></p>
+
             </form>
+
         </div>
+
     </div>
 
+
     <script src="painel.js"></script>
+
 </body>
 </html>
