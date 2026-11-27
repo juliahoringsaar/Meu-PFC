@@ -19,14 +19,27 @@
 
     <header>
 
-        <a href="index.html" aria-label="Voltar para a página inicial">
-            <img class="logo" src="Imagens/Gemini_Generated_Image_cf665ucf665ucf66-removebg-preview.png" width="70" alt="Logo CITAC">
-        </a>
+        <header>
 
-        <nav class="navegacao">
-            <a href="index.html"><h3>INÍCIO</h3></a>
-            <a href="login.html"><h3>LOGIN</h3></a>
-        </nav>
+    <a href="index.html" id="about-logo-link" aria-label="Voltar para a página inicial">
+        <img
+            class="logo"
+            src="Imagens/Gemini_Generated_Image_cf665ucf665ucf66-removebg-preview.png"
+            width="70"
+            alt="Logo CITAC"
+        >
+    </a>
+
+    <nav class="navegacao" id="about-navigation">
+        <a href="index.html"><h3>INÍCIO</h3></a>
+        <a href="login.html"><h3>LOGIN</h3></a>
+    </nav>
+
+    <a href="index.html" class="btn-voltar" id="context-back" hidden>
+        &#9664; VOLTAR
+    </a>
+
+</header>
 
     </header>
 
@@ -50,7 +63,7 @@
             </h2>
 
             <p class="team-names">
-                Júlia Horing <span>•</span> Laura
+                Júlia Horing <span>•</span> Laura Maria
             </p>
 
         </section>
@@ -67,15 +80,39 @@
 
         </section>
 
-        <a class="about-back" href="index.html">
-            VOLTAR AO INÍCIO
-        </a>
-
+        <a class="about-back" id="about-back" href="index.html">
+    VOLTAR AO INÍCIO
+</a>
     </main>
 
     <footer class="site-footer about-footer">
         <p>&copy; 2026 CITAC</p>
     </footer>
+
+    <script>
+
+    const parametros = new URLSearchParams(window.location.search);
+
+    const veioDoPainel = parametros.get("origem") === "painel";
+
+    if (veioDoPainel) {
+
+        const logoLink = document.getElementById("about-logo-link");
+        const navegacao = document.getElementById("about-navigation");
+        const voltar = document.getElementById("context-back");
+        const voltarInicio = document.getElementById("about-back");
+
+        logoLink.hidden = true;
+        navegacao.hidden = true;
+
+        voltar.href = "painel.html";
+        voltar.hidden = false;
+
+        voltarInicio.hidden = true;
+
+    }
+
+</script>
 
 </body>
 </html>
