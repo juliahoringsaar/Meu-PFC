@@ -97,8 +97,6 @@ header h3 {
     font-family: 'Hepta Slab';
 }
 
-/* BOTÃO CONHEÇA */
-
 .btn-discover,
 .btn-discover:visited,
 .btn-discover:active {
@@ -125,8 +123,6 @@ header h3 {
     transform: translateY(-2px);
     color: white;
 }
-
-/* BOTÕES ENTRAR E CADASTRE-SE */
 
 .hero-right {
     display: flex;
@@ -159,8 +155,6 @@ header h3 {
     background-color: white;
     color: black;
 }
-
-/* CONTEÚDO SOBRE O PROJETO */
 
 .content-section {
     background-color: #000000;
@@ -197,8 +191,6 @@ header h3 {
     font-family: 'Hepta Slab';
 }
 
-/* ANIMAÇÃO DOS BOTÕES */
-
 .btn-primary {
     animation: aparecerBotao 0.7s ease-out both;
 }
@@ -232,8 +224,6 @@ header h3 {
         filter: blur(0);
     }
 }
-
-/* RODAPÉ */
 
 .site-footer {
     width: 100%;
@@ -271,8 +261,6 @@ header h3 {
     color: #c77dff;
 }
 
-/* ACESSIBILIDADE */
-
 @media (prefers-reduced-motion: reduce) {
     .btn-primary,
     .btn-secondary {
@@ -285,8 +273,6 @@ header h3 {
         transition: none;
     }
 }
-
-/* RESPONSIVIDADE */
 
 @media (max-width: 700px) {
 
